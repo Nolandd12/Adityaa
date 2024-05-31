@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Gender Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AI Gender Predictor</h2>
+        <form id="genderForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById('genderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+
+            // Simulate API call and processing time
+            setTimeout(() => {
+                let result;
+                let confidence;
+
+                if (firstName.toLowerCase().startsWith('cindy') ||
+                    firstName.toLowerCase().startsWith('putrii') ||
+                    firstName.toLowerCase().startsWith('lala') ||
+                    firstName.toLowerCase().startsWith('lulu') ||
+                    firstName.toLowerCase().startsWith('nisaa')) {
+                    result = 'permpuan';
+                    confidence = '86%';
+                } else {
+                    result = 'laki laki';
+                    confidence = '90%';
+                }
+
+                document.getElementById('result').textContent = `Predicted Gender: ${result} | Confidence: ${confidence}`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
